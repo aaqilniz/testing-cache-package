@@ -1,1 +1,1 @@
-export * from './cache.model';
+export * from './rest-countries.model';

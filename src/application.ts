@@ -1,4 +1,3 @@
-import {CacheBindings, CacheComponent} from '@aaqilniz/rest-cache';
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
 import {RepositoryMixin} from '@loopback/repository';
@@ -9,7 +8,6 @@ import {
 } from '@loopback/rest-explorer';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
-import {CacheStrategyProvider} from './providers/cache-strategy.provider';
 import {MySequence} from './sequence';
 
 export {ApplicationConfig};
@@ -19,8 +17,6 @@ export class TestingCachePackageApplication extends BootMixin(
 ) {
   constructor(options: ApplicationConfig = {}) {
     super(options);
-    this.component(CacheComponent);
-    this.bind(CacheBindings.CACHE_STRATEGY).toProvider(CacheStrategyProvider);
     // Set up the custom sequence
     this.sequence(MySequence);
 
